@@ -17,13 +17,13 @@ const Home = () => {
                 <div className="home__headerRight">
                   <Link to='gmail'>Gmail</Link>
                   <Link to='images'>Images</Link>
-                  <AppsIcon/>
+                  <a href="https://thakurprathya-portfolio.netlify.app/"><AppsIcon/></a>
                   <Avatar/>
                 </div>
             </div>
             <div className="home__body">
                 <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt=""/>
-                <div className="home__inputContainer"><SearchBar /></div>
+                <div className="home__inputContainer"><SearchBar  mainPage/></div>
             </div>
         </div>
     );

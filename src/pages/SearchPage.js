@@ -12,9 +12,11 @@ import ImageIcon from '@mui/icons-material/Image';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import RoomIcon from '@mui/icons-material/Room';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import SettingsIcon from '@mui/icons-material/Settings';
+import BuildIcon from '@mui/icons-material/Build';
 
 const SearchPage = () => {
-    const [{term}, dispatch]= useStateValue();   //dispatch will used to update the data layer, destructuring term from data layer
+    const [{term}]= useStateValue();   //destructuring term from data layer
     //API CAll using our custom hook
     const {data} = useGoogleSearch(term);  //calling our hook to retrieve data it fetched from engine depending upon the term
     //as we have limited amout of search provided for a day for development purposes we should create a sample json file and work on that
@@ -30,16 +32,16 @@ const SearchPage = () => {
                     <SearchBar hideButtons />
                     <div className="searchPage__options">
                         <div className="searchPage__optionsLeft">
-                            <div className="searchPage__option"><SearchIcon/><Link to="/all">All</Link></div>
-                            <div className="searchPage__option"><DescriptionIcon/><Link to="/news">News</Link></div>
-                            <div className="searchPage__option"><ImageIcon/><Link to="/images">Images</Link></div>
-                            <div className="searchPage__option"><LocalOfferIcon/><Link to="/shopping">Shopping</Link></div>
-                            <div className="searchPage__option"><RoomIcon/><Link to="/maps">maps</Link></div>
-                            <div className="searchPage__option"><MoreVertIcon/><Link to="/more">more</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><SearchIcon/>All</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><DescriptionIcon/>News</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><ImageIcon/>Images</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><LocalOfferIcon/>Shopping</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><RoomIcon/>maps</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><MoreVertIcon/>more</Link></div>
                         </div>
                         <div className="searchPage__optionsRight">
-                            <div className="searchPage__option"><Link to="/settings">Settings</Link></div>
-                            <div className="searchPage__option"><Link to="/tools">Tools</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><SettingsIcon/>Settings</Link></div>
+                            <div className="searchPage__option"><Link to="/search"><BuildIcon/>Tools</Link></div>
                         </div>
                     </div>
                 </div>

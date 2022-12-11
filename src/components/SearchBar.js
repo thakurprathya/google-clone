@@ -9,7 +9,7 @@ import MicIcon from '@mui/icons-material/Mic';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 
-const SearchBar = ({hideButtons= false}) => {  //passing a default prop to component
+const SearchBar = ({hideButtons= false, mainPage= false}) => {  //passing default props to component
     const [input, setInput]= useState(""); //creating a state to store entered text in input bar
     const navigate= useNavigate();
     // eslint-disable-next-line
@@ -25,10 +25,10 @@ const SearchBar = ({hideButtons= false}) => {  //passing a default prop to compo
     }
 
     return (
-        <form className='search'>  {/*making it form as want to include enter button functionality */}
+        <form className={!mainPage ? "search" : ""}>  {/*if mainpage then no class ,also making it form as want to include enter button functionality */}
             <div className="search__input">
                 <SearchIcon className="search__inputIcon"/>
-                <input type="text" value={input} onChange={e=> setInput(e.target.value)} />  {/*updating state value as input value changes */}
+                <input type="text" value={input} onChange={e=> setInput(e.target.value)}/>  {/*updating state value as input value changes */}
                 <MicIcon />
             </div>
             <div className={!hideButtons ? "search__buttons" : "search__buttonsHidden"}>  {/*depending upon the prop making buttons visible or invisible but maintaining enter key functionality */}

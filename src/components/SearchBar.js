@@ -10,10 +10,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 
 const SearchBar = ({hideButtons= false, mainPage= false}) => {  //passing default props to component
-    const [input, setInput]= useState(""); //creating a state to store entered text in input bar
+    const [{term}, dispatch]= useStateValue();   //dispatch will used to update the data layer
+    const [input, setInput]= useState(term); //creating a state to store entered text in input bar
     const navigate= useNavigate();
-    // eslint-disable-next-line
-    const [{}, dispatch]= useStateValue();   //dispatch will used to update the data layer
 
     const search= e =>{  //creating search funct
         e.preventDefault();
@@ -32,7 +31,7 @@ const SearchBar = ({hideButtons= false, mainPage= false}) => {  //passing defaul
                 <MicIcon />
             </div>
             <div className={!hideButtons ? "search__buttons" : "search__buttonsHidden"}>  {/*depending upon the prop making buttons visible or invisible but maintaining enter key functionality */}
-                <Button variant="outlined" onClick={search} type="submit">Google Search</Button>  {/*by adding type submit we add enter key submit functionality for this form linked to this button */}
+                <Button variant="outlined" onClick={search} disabled={(input===null || input==="")?true:false} type="submit">Google Search</Button>  {/*by adding type submit we add enter key submit functionality for this form linked to this button */}
                 <Button variant="outlined"><a id="btnLink" href='https://www.google.com/doodles'>I'm Feeling Lucky</a></Button>
              </div>
         </form>

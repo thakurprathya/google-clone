@@ -10,10 +10,6 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />}/>
                     <Route path="/search" element={<SearchPage />}/>
-                    <Route path="/about" element={<h1>This is About page</h1>}/>
-                    <Route path="/store" element={<h1>This is Google Store page</h1>}/>
-                    <Route path="/gmail" element={<h1>This is Mail page</h1>}/>
-                    <Route path="/images" element={<h1>This is Images page</h1>}/>
                 </Routes>
             </Router>
         </div>

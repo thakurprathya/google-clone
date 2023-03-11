@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 
 import { useStateValue } from '../context/StateProvider';
+import { actionTypes } from '../context/reducer';
 import useGoogleSearch from '../hooks/useGoogleSearch';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -16,7 +17,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import BuildIcon from '@mui/icons-material/Build';
 
 const SearchPage = () => {
-    const [{term}]= useStateValue();   //destructuring term from data layer
+    const [{term}, dispatch]= useStateValue();   //destructuring term from data layer
     //API CAll using our custom hook
     const {data} = useGoogleSearch(term);  //calling our hook to retrieve data it fetched from engine depending upon the term
     //as we have limited amout of search provided for a day for development purposes we should create a sample json file and work on that
@@ -25,7 +26,7 @@ const SearchPage = () => {
     return (
         <div className='searchPage'>
             <div className="searchPage__header">
-                <Link to="/">
+                <Link to="/" onClick={()=>{dispatch({type: actionTypes.SET_SEARCH_TERM, term: null})}}>
                     <img className="searchPage__logo" alt="" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"/>
                 </Link>
                 <div className="searchPage__headerbody">

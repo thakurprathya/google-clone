@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "clone-d4be1"
-  }
+    "default": "clone-d4be1",
+    "google-search-clone": "search-clone-a44fd"
+  },
+  "targets": {},
+  "etags": {}
 }
